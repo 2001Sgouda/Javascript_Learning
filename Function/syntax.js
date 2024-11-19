@@ -94,3 +94,77 @@ function showMe() {
 }
 showMe(); // Call the function
 */
+
+
+//Functions are first-class citizens in JavaScript.
+//You can pass functions to other functions as arguments, return them from other functions as values, and store them in variables.
+
+//storing function in variable, then we can call it via that variable
+function subtract(a,b){
+    return a-b;
+}
+let difference=subtract;
+console.log(difference(20,9));//11
+
+//passing a function to another function
+
+function add2(a,b){
+    return a+b;
+}
+let sum2=add2;
+function avg(a,b,fn){
+    return fn(a,b)/2;
+}
+let result3=avg(20,50,add2);
+console.log(result3);//35
+
+//another example
+function cmToIn(length){
+    return length/2.54;
+}
+function inToCm(length){
+    return length*2.54;
+}
+function convert(fn,length){
+    return fn(length);
+}
+let inches=convert(cmToIn,10);
+console.log(inches);//3.93700
+let cm=convert(inToCm,20);
+console.log(cm);//50.8
+
+//returning functions from functions
+
+//easy example
+
+function createPrefixer(prefix){
+    return function(name){
+        return `${prefix} ${name}`
+    };
+}
+const mrPrefixer=createPrefixer('Mr');
+console.log(mrPrefixer('John'));// Mr John
+const msPrefixer=createPrefixer('Ms');
+console.log(msPrefixer('Amile'));//Ms Amile
+
+
+//hard example with object
+function compareBy(propertyName){
+    return function(a,b){
+        let x=a[propertyName],
+        y=b[propertyName];
+        
+        if (x>y){
+            return 1;
+        }else if(x<y){
+            return -1;
+        }
+        return 0;
+    };
+}
+const prod1={name:'iphone',price:900};
+const prod2={name:'Samsung',price:800};
+const comparisonFunction=compareBy('price');
+
+const result4=comparisonFunction(prod1,prod2);
+console.log(result4);//1 (since prod1.price==900 > prod2.price==800)
