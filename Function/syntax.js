@@ -168,3 +168,18 @@ const comparisonFunction=compareBy('price');
 
 const result4=comparisonFunction(prod1,prod2);
 console.log(result4);//1 (since prod1.price==900 > prod2.price==800)
+
+
+//linear search implementation
+
+let fruits=['apple','banana','cucumbers','blueberries'];
+function linearSearch(arr, target){
+    for (let i=0; i<= arr.length;i++){
+        if(arr[i]==target){
+            return ` found '${target}' at index '${i}' `;
+        }
+    }
+    return ` '${target}' not found`;
+}
+let res = linearSearch(fruits, 'cucumbers');
+console.log(res);
