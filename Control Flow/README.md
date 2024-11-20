@@ -85,8 +85,8 @@ labelName: for (initializer; condition; increment/decrement) {
 }
 ```
 ### 2.5 **`break` and `continue`**
--break: Exits the current loop.
--continue: Skips the current iteration and proceeds to the next.
+- break: Exits the current loop.
+- continue: Skips the current iteration and proceeds to the next.
 ## 3. **Special Operators**
 ### 3.1 **`Comma `Operator**
 - Evaluates multiple expressions and returns the value of the last one.

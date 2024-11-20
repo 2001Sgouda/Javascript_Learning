@@ -48,7 +48,7 @@ do{
 let secretNumber=7;
 let userGuess;
 do{
-    userGuess=parseInt(prompt('Guess a number my little homie:'));
+    userGuess=parseInt(prompt('Guess a number my little homie:')); //window function, so can't run in nodejs environment
     if(userGuess!==secretNumber){
         console.log('Try again');
     }
